@@ -1,0 +1,37 @@
+body {
+  color: rgb(20, 3, 3);
+  line-height: 1.5;
+  background-image: url("/static/img/housei_haikei.jpg");
+  background-size: 80%;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(56, 54, 54);
+}
+a:hover {
+  opacity: 0.7;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: bisque;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto;
+  padding: 20px;
+}
+.navbar-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.nav-item {
+  display: block;
+}
