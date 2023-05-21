@@ -14,7 +14,7 @@
     <a href='{% url "bbs:update" article.pk %}'  class='btn btn-outline-primary mr-2'>編集</a>
     {% endif %}
 
-    <a href='{% url "bbs:index" %}' class='btn btn-outline-primary'>一覧に戻る</a>
+    <a href='{% url "bbs:list" %}' class='btn btn-outline-primary'>一覧に戻る</a>
 
     {% if request.user.id == object.author_id %}
     <a href='{% url "bbs:delete" article.pk %}'  class='btn btn-danger ml-5'>削除</a>

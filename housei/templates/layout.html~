@@ -10,20 +10,35 @@
         <title>豊正中学校1974年度卒業生同窓会</title>
     </head>
     <body>
-            <nav class="navbar">
-            <a class='navbar-title' href='{% url "home" %}'>ホーム</a>
+        <nav class="navbar">
+            <div class="nav-item">
+		    {% if 'home' in request.path %} 
+            <a class='navbar-title current' href='{% url "bbs:home" %}'> ホーム </a>
+	    {% else %}
+            <a class='navbar-title' href='{% url "bbs:home" %}'> ホーム </a>
+	    {% endif %}
+
+            </div>
             <ul class='navbar-nav'>
                     <li class='nav-time'>
-                        <span class='navbar-text'>{{ user }} - </span>
+                        <span class='navbar-login'>ログイン中:{{ user }} - </span>
                     </li>
                     <li class='nav-item'>
-                        <a href='{% url "logout" %}' class='logout nav-link'>ログアウト</a>
+		    {% if 'logout' in request.path %} 
+                        <a href='{% url "logout" %}' class='logout current'>ログアウト</a>
+	    		{% else %}
+                        <a href='{% url "logout" %}' class='logout'>ログアウト</a>
+	    		{% endif %}
                     </li>
                     <li class="nav-item">
-			<a href='{% url "accounts:signup" %}' class='signup nav-link'>ユーザー登録</a>
+		    {% if 'signup' in request.path %} 
+			<a href='{% url "accounts:signup" %}' class='signup current'>ユーザー登録</a>
+	    		{% else %}
+			<a href='{% url "accounts:signup" %}' class='signup'>ユーザー登録</a>
+	    		{% endif %}
                     </li>
                     <li class="nav-item">
-                        <a href='{% url "login" %}' class='login nav-link'>ログイン</a>
+                        <a href='{% url "login" %}' class='login'>ログイン</a>
                     </li>
             </ul>
         </nav>
@@ -31,5 +46,19 @@
             {% block content %}
             {% endblock %}
         </div>
-    </body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">$(function(){
+    $('.nav-item > a').each(function(){
+      var target = $(this).attr('href');
+      if(location.href.match(target)) {
+        $(this).parent().addClass('current');
+      } else {
+        $(this).parent().removeClass('current');
+      }
+    });
+  });
+
+</script>
+</body>
 </html>

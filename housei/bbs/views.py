@@ -39,4 +39,4 @@ class UpdateView(LoginRequiredMixin, generic.edit.UpdateView):
 
 class DeleteView(LoginRequiredMixin, generic.edit.DeleteView):
     model = Article
-    success_url = reverse_lazy('bbs:index')
+    success_url = reverse_lazy('bbs:list')

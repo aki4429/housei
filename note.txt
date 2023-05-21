@@ -1,0 +1,23 @@
+git init
+django-admin startproject housei
+$ cd housei
+$ python manage.py startapp bbs
+$ python manage.py startapp accounts
+bbsは掲示板本体、accountsはアカウントをもつ人でないと書き込み、編集、削除ができないようにログイン機能を持たせるために作ります。
+
+urls.py 作る。
+bbss ディレクトリ
+from django.urls import path
+from . import views
+
+app_name = 'bbs'
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('<int:id>/', views.detail, name='detail'),
+    path('create/', views.create, name='create'),
+    path('<int:id>/update/', views.update, name='update'),
+    path('<int:id>/delete/', views.delete, name='delete'),
+]
+
+

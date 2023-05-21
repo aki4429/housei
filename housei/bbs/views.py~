@@ -9,7 +9,7 @@ from django.core.exceptions import PermissionDenied
 from django.views.generic import TemplateView
 
 class Index(TemplateView):
-    template_name = "Index.html"
+    template_name = "bbs/index.html"
 
 class IndexView(generic.ListView):
     model = Article
